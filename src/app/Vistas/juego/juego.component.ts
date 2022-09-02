@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from 'src/app/Entidades/usuario';
 
 @Component({
   selector: 'app-juego',
@@ -7,15 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JuegoComponent implements OnInit {
 
-  public nombre:string;
+  usuario:Usuario = new Usuario;
 
   constructor() { 
-    this.nombre = '';
+    this.usuario.nombre = '';
+    this.usuario.apellido = '';
   }
 
   ngOnInit(): void {
-      this.nombre = "Ezequiel";
-      console.log(this.nombre);
+      this.usuario.nombre = 'Pablo';
+      this.usuario.apellido = 'Córdoba';
+      console.log(this.usuario.nombre);
+      console.log(this.usuario.apellido);
+  }
+
+  cambiarNombre() :void {
+    this.usuario.nombre = 'Lara';
+  }
+
+  aceptar():void{
+    console.log(this.usuario.nombre);
+    console.log(this.usuario.apellido);
   }
 
 }

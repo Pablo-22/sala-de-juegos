@@ -1,1 +1,3 @@
-<p> {{ this.nombre }} </p>
+<label>nombre</label> <input type="text" [(ngModel)]="this.usuario.nombre" >
+<label>apellido</label> <input type="text" [(ngModel)]="this.usuario.apellido" >
+<input type="button" (click)="this.usuario.mostrar()" value="Aceptar">
