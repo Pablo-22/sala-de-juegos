@@ -1,29 +1,28 @@
-<div id="page-container">
-	<div id="content-wrap">
-		
-		<!-- Navbar -->
-		<nav class="navbar navbar-expand-lg navbar-light bg-white">
-			<div class="container-fluid">
-				<div class="collapse navbar-collapse" id="navbarExample01">
-					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					<li class="nav-item active">
-						<a class="nav-link" [routerLink]="['/']">Home</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" [routerLink]="['/menu']">Menu</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" [routerLink]="['/login']">Login</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" [routerLink]="['/quien-soy']">Quién soy</a>
-					</li>
-					</ul>
-				</div>
+<div id="page-container" style="font-size:130%;" >
+	<!-- Navbar -->
+	<nav class="navbar navbar-expand-lg navbar-light bg-white" >
+		<div class="container-fluid">
+			<div class="collapse navbar-collapse" id="navbarExample01">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<li class="nav-item active">
+					<a class="nav-link" [routerLink]="['/']">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" [routerLink]="['/menu']">Menu</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" [routerLink]="['/login']">Login</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" [routerLink]="['/quien-soy']">Quién soy</a>
+				</li>
+				</ul>
 			</div>
-		</nav>
-		<!-- Navbar -->
+		</div>
+	</nav>
+	<!-- Navbar -->
 
+	<div id="content-wrap">
 
 		<router-outlet></router-outlet>
 	</div>
