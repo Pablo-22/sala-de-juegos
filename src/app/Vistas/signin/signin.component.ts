@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { ServiceAuth } from 'src/app/Servicios/auth.service';
 
 @Component({
-	selector: 'app-login',
-	templateUrl: './login.component.html',
-	styleUrls: ['./login.component.css'],
+  selector: 'app-signin',
+  templateUrl: './signin.component.html',
+  styleUrls: ['./signin.component.css']
 })
-export class LoginComponent implements OnInit {
+export class SigninComponent implements OnInit {
 	emailInputStr: string = '';
 	passwordInputStr: string = '';
 	isUserLogged: boolean = false;
@@ -27,8 +27,12 @@ export class LoginComponent implements OnInit {
 		});
 	}
 
-	onLogin() {
-		this._auth.login(this.emailInputStr, this.passwordInputStr).then(res=>{
+	onRegister() {
+		
+	}
+
+	onSignIn() {
+		this._auth.registro(this.emailInputStr, this.passwordInputStr).then(res=>{
 			console.log(res);
 			this._router.navigate(['']);
 			this.isLogged();
