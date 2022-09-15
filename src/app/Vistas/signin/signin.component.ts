@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { ModalComponent } from 'src/app/Componentes/modal/modal.component';
 import { ServiceAuth } from 'src/app/Servicios/auth.service';
 
 @Component({
@@ -12,7 +14,7 @@ export class SigninComponent implements OnInit {
 	passwordInputStr: string = '';
 	isUserLogged: boolean = false;
 
-	constructor(private _auth : ServiceAuth, private _router : Router) {}
+	constructor(private _auth : ServiceAuth, private _router : Router, public dialog: MatDialog) {}
 
 	ngOnInit(): void {
 		this.isLogged();
@@ -27,16 +29,20 @@ export class SigninComponent implements OnInit {
 		});
 	}
 
-	onRegister() {
-		
-	}
-
 	onSignIn() {
 		this._auth.registro(this.emailInputStr, this.passwordInputStr).then(res=>{
-			console.log(res);
-			this._router.navigate(['']);
-			this.isLogged();
-			console.log(this.isUserLogged);
+			if(res){
+				this._router.navigate(['']);
+				this.isLogged();
+			}else {
+				this.dialog.open(ModalComponent, {
+					data: {
+					  title: 'Error',
+					  body: 'No se ha podido registrar correctamente. Es posible que ya exista una cuenta con este correo.',
+					  buttonText: 'Aceptar'
+					},
+				});
+			}
 		});
 	}
 }

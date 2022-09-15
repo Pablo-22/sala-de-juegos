@@ -21,13 +21,15 @@ export class HomeComponent implements OnInit {
 		this._auth.getInfoUsuarioLoggeado().subscribe(res =>{
 			if (res) {
 				this.isUserLogged = true;
+			}else{ 
+				this.isUserLogged = false;
 			}
 		});
 	}
 
 	onStart() {
 		if (this.isUserLogged) {
-			
+
 		} else {
 			this._router.navigate(['login']);
 		}

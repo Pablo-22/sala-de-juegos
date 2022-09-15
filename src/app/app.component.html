@@ -3,13 +3,40 @@
 	<!-- Responsive navbar-->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<div class="container px-5">
-			<a class="navbar-brand" href="#!">Sala de Juegos</a>
+			<a class="navbar-brand" [routerLink]="['/']" >Sala de Juegos</a>
+			
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-					<li class="nav-item"><a class="nav-link active" aria-current="page" [routerLink]="['/']">Home</a></li>
-					<li class="nav-item"><a class="nav-link" [routerLink]="['/login']">Login</a></li>
-					<li class="nav-item"><a class="nav-link" [routerLink]="['/quien-soy']">Sobre mí</a></li>
+					
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" [routerLink]="['/']">
+							Home
+						</a>
+					</li>
+					
+					<li class="nav-item" *ngIf="!this.isUserLogged; else logOutBtn">
+						<a class="nav-link" [routerLink]="['/login']">
+							Login
+						</a>
+					</li>
+					
+					<ng-template #logOutBtn>
+						<li class="nav-item">
+							<a class="nav-link" (click)="this.logOut()">
+								Cerrar sesión
+							</a>
+						</li>
+					</ng-template>
+					
+
+					<li class="nav-item">
+						<a class="nav-link" [routerLink]="['/quien-soy']">
+							Sobre mí
+						</a>
+					</li>
+
 				</ul>
 			</div>
 		</div>

@@ -14,6 +14,9 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 import { SigninComponent } from './Vistas/signin/signin.component';
+import { ModalComponent } from './Componentes/modal/modal.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -24,6 +27,7 @@ import { SigninComponent } from './Vistas/signin/signin.component';
     HomeComponent,
     QuienSoyComponent,
     SigninComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +35,12 @@ import { SigninComponent } from './Vistas/signin/signin.component';
 	FormsModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    NoopAnimationsModule,
+	MatDialogModule 
+  ],
+  entryComponents: [
+    ModalComponent
   ],
   providers: [ServiceAuth],
   bootstrap: [AppComponent]
