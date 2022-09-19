@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "labiv-2022"
+  },
+  "targets": {
+    "labiv-2022": {
+      "hosting": {
+        "salaJuegos": [
+          "labiv-2022"
+        ]
+      }
+    }
   }
 }

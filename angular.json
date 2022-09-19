@@ -97,6 +97,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "salaJuegos:build:production",
+            "firebaseProject": "labiv-2022",
+            "firebaseHostingSite": "labiv-2022"
+          }
         }
       }
     }

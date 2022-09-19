@@ -1,0 +1,34 @@
+<div class="game-container">
+
+	<!-- Info sobre el juego -->
+	<div class="mt-4">
+		<ul class="">
+			<li class="game-info">Puntos: {{ this.score }}</li>
+			<li class="game-info">Usuario: {{ this.score }}</li>
+		</ul>
+	</div>
+
+	<!-- Cartas -->
+	<div class="game-card">
+		<img *ngIf="this.gameStatus == 'in-progress'" style="
+			background-repeat: no-repeat;
+			background-position: center;
+			width: 14rem;
+			height: 20rem;
+			object-fit: none;
+			" 
+			src="{{ this.activeCard.images.svg }}" alt="">
+	</div>
+
+	<!-- Controles -->
+	<div class="mt-5 game-controls">
+		<button (click)="this.onNextCardSelected('bigger')" class=" me-4 btn btn-primary"> 
+			Mayor 
+		</button>
+
+		<button (click)="this.onNextCardSelected('lower')" class="btn btn-primary"> 
+			Menor 
+		</button>
+	</div>
+
+</div>

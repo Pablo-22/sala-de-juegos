@@ -1,6 +1,11 @@
-export class Usuario {
-	email:string|undefined;
-	password:string|undefined;
+import { arrayRemove } from "firebase/firestore";
+import { Log } from "./log";
+
+export class User {
+	id:string = '';
+	email:string;
+	password:string;
+	userLogs:Log[];
 
 
 
@@ -11,5 +16,6 @@ export class Usuario {
 	constructor(){
 		this.email = '';
 		this.password = '';
+		this.userLogs = [];
 	}
 }

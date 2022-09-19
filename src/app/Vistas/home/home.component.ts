@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ModalComponent } from 'src/app/Componentes/modal/modal.component';
 import { ServiceAuth } from 'src/app/Servicios/auth.service';
+import { UsersService } from 'src/app/Servicios/users.service';
 
 @Component({
 	selector: 'app-home',
@@ -13,7 +14,7 @@ export class HomeComponent implements OnInit {
 
 	isUserLogged: boolean = false;
 
-  	constructor(private _auth : ServiceAuth, private _router : Router, public dialog: MatDialog) { }
+  	constructor(private _auth : ServiceAuth, private _router : Router, public dialog: MatDialog, private _users:UsersService) { }
 
 	ngOnInit(): void {
 		this.isLogged();
