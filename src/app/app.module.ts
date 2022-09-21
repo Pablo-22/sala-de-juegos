@@ -16,11 +16,13 @@ import { SigninComponent } from './Vistas/signin/signin.component';
 import { ModalComponent } from './Componentes/modal/modal.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
-import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+
 import { MayorMenorComponent } from './Vistas/juegos/mayor-menor/mayor-menor.component';
 import { HttpClientModule } from '@angular/common/http'
 
@@ -43,12 +45,13 @@ import { HttpClientModule } from '@angular/common/http'
     AngularFireAuthModule,
     NoopAnimationsModule,
 	MatDialogModule ,
-	AngularFirestoreModule,
- 	provideFirebaseApp(() => initializeApp(environment)),
-	provideAuth(() => getAuth()),
-	provideDatabase(() => getDatabase()),
-	provideFirestore(() => getFirestore()),
 	HttpClientModule,
+	
+	AngularFirestoreModule,
+	provideFirebaseApp(() => initializeApp(environment)),
+   	provideAuth(() => getAuth()),
+   	provideDatabase(() => getDatabase()),
+   	provideFirestore(() => getFirestore()),
 ],
   entryComponents: [
     ModalComponent
