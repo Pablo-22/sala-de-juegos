@@ -2,10 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { JuegosRoutingModule } from './juegos-routing.module';
+import { AhorcadoComponent } from './ahorcado/ahorcado.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    AhorcadoComponent
+  ],
   imports: [
     CommonModule,
     JuegosRoutingModule
