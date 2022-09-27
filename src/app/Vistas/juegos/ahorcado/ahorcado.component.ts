@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 
 @Component({
 	selector: 'app-ahorcado',
@@ -15,7 +15,8 @@ export class AhorcadoComponent implements OnInit {
 	wordsList:string[] = [
 		'Cortina', 'Montaña', 'Cadena', 'Silueta', 'Esquina', 'Pelota', 'Edificio', 'Extremista', 'Estimado', 'Astucia', 'Asterisco',
 		'Estudiante', 'Perezoso', 'Vinilo', 'Desastre', 'Gigante', 'Certeza', 'Apasionado', 'Enamoramiento', 'Natural', 'Teleférico',
-		'Tentación', 'Termodinámica', 'Sensacional', 'Efecto', 'Saturación', 'Siniestro', 'Automóvil'
+		'Tentación', 'Termodinámica', 'Sensacional', 'Efecto', 'Saturación', 'Siniestro', 'Automóvil', 'Descuidado', 'Pesticida',
+		'Estudioso', 'Linguista', 'Poeta', 'Tractor', 'Terremoto', 'Mamadera', 'Delincuente', 'Retirado', 'Privilegio', 'Sabueso'
 	]
 
 	playedWords:string[] = [];
@@ -30,9 +31,6 @@ export class AhorcadoComponent implements OnInit {
   	gameStatus: 'initial'|'in-progress'|'finished' = 'initial';
 	score:number = 0;
 	
-	@ViewChild("ConfettiSource", { read: ElementRef })
-	confettiSource!: ElementRef;
-
 	constructor(private renderer: Renderer2){}
 
 	ngOnInit(): void {
@@ -86,6 +84,11 @@ export class AhorcadoComponent implements OnInit {
 				}
 
 				if (!this.secretWord.includes('')) {
+					let audio = new Audio();
+					audio.src = '../../../assets/mario-coin-sound-effect.mp3';
+					audio.load();
+					audio.play();
+
 					this.score += 25;
 
 
@@ -113,6 +116,12 @@ export class AhorcadoComponent implements OnInit {
 			const element = this.splittedWord[index].toUpperCase();
 			this.secretWord[index] = element;
 		}
+
+		let audio = new Audio();
+		audio.src = '../../../assets/wrong-buzzer_dudoo.mp3';
+		audio.load();
+		audio.volume = 0.05;
+		audio.play();
 
 		setTimeout(() => {
 			this.newGame();

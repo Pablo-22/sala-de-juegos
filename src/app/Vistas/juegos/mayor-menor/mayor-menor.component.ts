@@ -44,9 +44,27 @@ export class MayorMenorComponent implements OnInit {
 		this.nextCard();
 		let result = this.compareCards(this.previousCard, this.activeCard);
 		if( result == guest  ) {
+
 			this.score += 1;
+
+			setTimeout(() => {
+				let audio = new Audio();
+				audio.src = '../../../assets/mario-coin-sound-effect.mp3';
+				audio.load();
+				audio.play();
+			}, 400);
+			
+
 		} else if(result != 'equal') {
 			this.resetGame();
+
+			setTimeout(() => {
+				let audio = new Audio();
+				audio.src = '../../../assets/wrong-buzzer_dudoo.mp3';
+				audio.load();
+				audio.volume = 0.05;
+				audio.play();
+			}, 400);
 		}
 	}
 
