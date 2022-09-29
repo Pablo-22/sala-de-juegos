@@ -45,7 +45,7 @@ import { HttpClientModule } from '@angular/common/http'
     AngularFireAuthModule,
     NoopAnimationsModule,
 	MatDialogModule ,
-	HttpClientModule,
+	HttpClientModule, 
 	
 	AngularFirestoreModule,
 	provideFirebaseApp(() => initializeApp(environment)),
