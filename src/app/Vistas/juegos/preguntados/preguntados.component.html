@@ -12,10 +12,10 @@
 			</div>
 			
 			<div class="d-flex flex-column gap-3 flex-grow-1">
-				<h4>Puntos: 3</h4>
+				<h4>Puntos: {{this.score}}</h4>
 
 				<mat-selection-list [multiple]="false">
-					<mat-list-option (click)="this.showCorrect()" [ngClass]="this.getClass(option)"
+					<mat-list-option (click)="this.onAnswer(option)" [ngClass]="this.getClass(option)"
 						*ngFor="let option of this.gameQuestion?.options; index as i" class="mat-elevation-z2 mb-4">
 					  {{ this.formatBreed(option) }}
 					</mat-list-option>

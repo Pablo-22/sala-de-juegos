@@ -43,7 +43,7 @@ export class SimonComponent implements OnInit, AfterViewInit {
 				setTimeout(() => {
 					this.Button1.nativeElement.classList.remove('b1-shadow-inset-center');
 					return new Promise<void>((resolve, reject) => { })
-				}, 600);
+				}, 200);
 				break;
 
 			case 2:
@@ -52,7 +52,7 @@ export class SimonComponent implements OnInit, AfterViewInit {
 				setTimeout(() => {
 					this.Button2.nativeElement.classList.remove('b2-shadow-inset-center');
 					return new Promise<void>((resolve, reject) => { })
-				}, 600);
+				}, 200);
 				break;
 
 			case 3:
@@ -61,7 +61,7 @@ export class SimonComponent implements OnInit, AfterViewInit {
 				setTimeout(() => {
 					this.Button3.nativeElement.classList.remove('b3-shadow-inset-center');
 					return new Promise<void>((resolve, reject) => { })
-				}, 600);
+				}, 200);
 				break;
 
 			case 4:
@@ -70,19 +70,19 @@ export class SimonComponent implements OnInit, AfterViewInit {
 				setTimeout(() => {
 					this.Button4.nativeElement.classList.remove('b4-shadow-inset-center');
 					return new Promise<void>((resolve, reject) => { })
-				}, 600);
+				}, 200);
 				break;
 		}
 		return new Promise<void>((resolve, reject) => { })
 	}
 
 	playSequence(){
-		let delay = 700;
+		let delay = 400;
 		this.sequence.forEach( x => {
 			setTimeout(async () => {
 				await this.playButton(x, delay);
 			}, delay);
-			delay += 900
+			delay += 500
 		});
 	}
 

@@ -10,6 +10,7 @@ export class PreguntadosComponent implements OnInit {
 
 	gameQuestion:any;
 	showCorrectAnswer:boolean = false;
+	score:number = 0;
 
 	constructor(private _dogs:DogsService) {
 		this._dogs.getDogBreedsPlainList()
@@ -63,8 +64,11 @@ export class PreguntadosComponent implements OnInit {
 		}, 2000);
 	}
 
-	onAnswer(){
-		if (!this.showCorrect) {
+	onAnswer(answer:string){
+		if (!this.showCorrectAnswer) {
+			if (this.evaluateAnswer(answer)) {
+				this.score++;
+			}
 			this.showCorrect();
 		}
 	}
