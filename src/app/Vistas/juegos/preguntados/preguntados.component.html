@@ -1,0 +1,25 @@
+<div class="p-5">
+	<div class="d-flex flex-row gap-5">
+			<div style="max-width: 35vw;">
+				<mat-card class="example-card">
+					<img mat-card-image src="{{ this.gameQuestion?.image }}">
+					<mat-card-content>
+					<p>
+						Seleccione la raza del perro de la foto entre las opciones en pantalla.
+					</p>
+					</mat-card-content>
+				</mat-card>
+			</div>
+			
+			<div class="d-flex flex-column gap-3 flex-grow-1">
+				<h4>Puntos: 3</h4>
+
+				<mat-selection-list [multiple]="false">
+					<mat-list-option (click)="this.showCorrect()" [ngClass]="this.getClass(option)"
+						*ngFor="let option of this.gameQuestion?.options; index as i" class="mat-elevation-z2 mb-4">
+					  {{ this.formatBreed(option) }}
+					</mat-list-option>
+				</mat-selection-list>
+			</div>
+	</div>
+</div>
